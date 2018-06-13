@@ -12,7 +12,7 @@ Architrave Python Coding Challenge.
 """
 
 import time
-
+import logging
 
 class Callee():
 
@@ -23,9 +23,9 @@ class Callee():
         self.__job_type = job_type
 
     def process_job(self, job):
-        print('Start processing job {} on {}:'.format(job, id(self)))
+        logging.info('Start processing job {} of type {} on {}:'.format(job, self.__job_type, id(self)))
         time.sleep(Callee.PROCESS_TIME)
-        print('Processed job: ', job)
+        logging.info('Processed job: {} '.format(job))
 
     def switch_job_type(self, job_type):
         print('Start switching job type: ', job_type)
