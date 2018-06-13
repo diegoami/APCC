@@ -28,8 +28,8 @@ class Callee():
         logging.info('Processed job: {} '.format(job))
 
     def switch_job_type(self, job_type):
-        print('Start switching job type: ', job_type)
+        logging.info('Start switching job type: {} '.format(job_type))
         time.sleep(Callee.SWITCH_TIME)
         self.job_type = job_type
-        print('Switched to job_type: ', job_type)
+        logging.info('Start switching job type: {} '.format(job_type))
 
