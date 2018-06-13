@@ -22,7 +22,8 @@ class Caller:
         self._job_generator = job_generator
         self.__job_distribution = defaultdict(int)
         self.threads = []
-        self.lock = Lock()
+
+
 
     def execute_job(self,  job_type):
         while (self.__job_distribution.get(job_type, 0) >= 10):
