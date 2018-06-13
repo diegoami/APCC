@@ -19,6 +19,7 @@ from callers.caller import Caller
 from callees.callee import Callee
 from lib.job_generator import job_generator
 from lib.job_types import JOB_TYPES
+import time
 
 
 def main():
@@ -29,13 +30,19 @@ def main():
 
     print("Create Callers")
     callees = defaultdict(list)
+    start = time.time()
 
+
+    elapsed = end - start
     for job_type in JOB_TYPES:
         for i in range(0, 10):
             callees[job_type].append(Callee(job_type))
     caller = Caller(callees, job_generator())
     caller.run()
 
+    end = time.time()
+    elapsed = end - start
 
+    print("Elapsed time : {}".format(elapsed) )
 if __name__ == '__main__':
     main()

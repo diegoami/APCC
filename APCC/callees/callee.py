@@ -30,4 +30,5 @@ class Callee():
     def switch_job_type(self, job_type):
         print('Start switching job type: ', job_type)
         time.sleep(Callee.SWITCH_TIME)
+        self.__job_type = job_type
         print('Switched to job_type: ', job_type)
