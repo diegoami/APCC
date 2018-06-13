@@ -25,18 +25,24 @@ class Caller:
         self.lock = Lock()
 
     def execute_job(self,  job_type):
-        while (self.__job_distribution.get(job_type, 0) > 10):
+        while (self.__job_distribution.get(job_type, 0) >= 10):
+#            print('Waiting for available worker... type : {} , {} executing '.format(job_type, self.__job_distribution.get(job_type)))
             time.sleep(0.5)
-        callee = random.choice(self._callees[job_type])
+
         self.lock.acquire()
+        print('Ok to execute worker... type : {} , executing : {} '.format(job_type,
+                                                                           self.__job_distribution.get(job_type)))
+
         self.__job_distribution[job_type] = self.__job_distribution.get(job_type, 0) + 1
-        self.lock.release()
-        print('Distribution before calling : {}'.format(self.__job_distribution))
+        callee = random.choice(self._callees[job_type])
+       # self.lock.release()
+
         callee.process_job(job_type)
-        self.lock.acquire()
+       # self.lock.acquire()
         self.__job_distribution[job_type] = self.__job_distribution.get(job_type, 0) - 1
-        self.lock.release()
         print('Distribution after calling : {}'.format(self.__job_distribution))
+        self.lock.release()
+
 
     def run(self):
         for i in range(0, 1000):
