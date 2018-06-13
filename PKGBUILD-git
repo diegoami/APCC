@@ -1,0 +1,44 @@
+# Maintainer: Richard Klemm <>
+pkgbase=python-APCC-git
+pkgname=('python-APCC-git' 'python2-APCC-git')
+_pyname=APCC
+_gitname=APCC
+pkgver=20170101
+pkgrel=1
+pkgdesc='Project Structure for coding challenge'
+arch=('any')
+url='https://github.com/architrave-de/APCC'
+license=('BSD')
+makedepends=('git' 'python' 'python2' 'python-setuptools' 'python2-setuptools')
+options=(!emptydirs)
+source=("git+https://github.com/architrave-de/${_gitname}")
+md5sums=('SKIP')
+
+prepare() {
+  cd "${srcdir}/${_gitname}"
+  cp -R "${srcdir}/${_gitname}" "${srcdir}/${_gitname}-py2"
+}
+
+package_python-APCC-git() {
+  depends=('python' 'python-setuptools')
+  provides=('python-APCC')
+  conflicts=('python-APCC')
+  cd "${srcdir}/${_gitname}"
+  python3 setup.py install --root="${pkgdir}/" --optimize=1
+  install -D -m644 LICENSE "${pkgdir}/usr/share/licenses/${pkgbase}/LICENSE"
+}
+
+package_python2-APCC-git() {
+  depends=('python2' 'python2-setuptools')
+  provides=('python2-APCC')
+  conflicts=('python2-APCC')
+  cd "${srcdir}/${_gitname}-py2"
+  python2 setup.py install --root="${pkgdir}/" --optimize=1
+}
+
+pkgver() {
+  cd "${srcdir}/${_gitname}"
+  git describe --long | sed -E 's/([^-]*-g)/r\1/;s/-/./g;s/^v//'
+}
+
+# vim:set ts=2 sw=2 et:
