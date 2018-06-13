@@ -12,7 +12,7 @@ Architrave Python Coding Challenge.
 """
 import logging
 
-class LRUCaller:
+class VariableCaller:
 
     def __init__(self, lru_pool, job_generator):
         self._lru_pool = lru_pool

@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Architrave Python Coding Challenge. Project Structure for coding challenge &#8212; Architrave Python Coding Challenge 0.1.0 documentation</title>
+    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
@@ -25,7 +28,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Architrave Python Coding Challenge" href="index.html" /> 
   </head>
-  <body>
+  <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -64,10 +67,17 @@
 </table>
 <div class="section" id="purpose">
 <h2>PURPOSE<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>Image the following scenario:</p>
+<p>You&#8217;ve one master machine and 100 workers.
+There are 10 different kinds of jobs that need to be processed.
+Each worker is capable of processing each kind of job.
+Switching between jobs kinds takes 5 Minutes for a worker (during which he can&#8217;t process any job)
+The number of pending jobs is dynamic and incoming order isn&#8217;t strict.
+The average processing time of a job is on average 2 Minutes.</p>
 </div>
 <div class="section" id="installation">
 <h2>INSTALLATION<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>It’s easiest to install this module as development package:
+<p>It&#8217;s easiest to install this module as development package:
 <cite>pip install -r requirements.txt
 `pip install -e .</cite>
 That way, it will automatically update to changes in the code</p>
@@ -85,35 +95,20 @@ That way, it will automatically update to changes in the code</p>
 way. Mainly, it serves to define a common vocabulary and show
 the idea of the task.</p>
 </div>
-<div class="section" id="copyright">
-<h2>COPYRIGHT<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
-<p>Copyright © 2018, Richard Klemm.
-All rights reserved.</p>
-<p>Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are
-met:</p>
+<div class="section" id="questions-tasks">
+<h2>QUESTIONS / TASKS<a class="headerlink" href="#questions-tasks" title="Permalink to this headline">¶</a></h2>
+<p>Questions:</p>
 <ol class="arabic simple">
-<li>Redistributions of source code must retain the above copyright
-notice, this list of conditions, and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright
-notice, this list of conditions, and the following disclaimer in the
-documentation and/or other materials provided with the distribution.</li>
-<li>Neither the name of the author of this software nor the names of
-contributors to this software may be used to endorse or promote
-products derived from this software without specific prior written
-consent.</li>
+<li>How is the current implementation broken? When does it make sense to deviate from the
+specs that far?</li>
+<li>Describe a possible solution that would optimally use available resources.
+We figured it would take too long to actually implement but are interested in the
+solutions you come up with</li>
 </ol>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-“AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
-OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>Tasks:</p>
+<ol class="arabic simple">
+<li>Make the workers run in parallel.</li>
+</ol>
 </div>
 </div>
 
@@ -130,7 +125,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 <li><a class="reference internal" href="#installation">INSTALLATION</a></li>
 <li><a class="reference internal" href="#usage">USAGE</a></li>
 <li><a class="reference internal" href="#notes">NOTES</a></li>
-<li><a class="reference internal" href="#copyright">COPYRIGHT</a></li>
+<li><a class="reference internal" href="#questions-tasks">QUESTIONS / TASKS</a></li>
 </ul>
 </li>
 </ul>
@@ -173,7 +168,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Richard Klemm.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
     </div>
   </body>
 </html>

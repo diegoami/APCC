@@ -58,3 +58,17 @@ Tasks:
 
 1. Make the workers run in parallel.
 
+
+ANSWER
+------------------
+
+1. In the current implementation the workers do not run in parallel and there is no guarantee that a maximum of 10
+workers run at any time for a job type.
+Not sure what the constraints would actually be, but rather then creating workers with a fixed job type,
+I would create them only when I know the jobtype at runtime. If this is not possible or too expensive, I would allocate
+the workers accordingly to the expected distribution of job_types.
+
+2. If the distribution of job types is not known, the system could slowly reallocate workers to job_types that appear more
+frequently. I tried implementing a solution "variable_pool" which does just that.
+
+Task: Now the workers run in parallel

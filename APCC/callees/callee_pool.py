@@ -4,10 +4,13 @@ from threading import Thread, Semaphore
 import logging
 
 
+
+"""A fixed pool of callees to manage the scenario of a limited number of workers
+"""
 class CalleePool():
 
 
-    def __init__(self, job_type, pool_size):
+    def __init__(self, job_type, pool_size=10):
         self.__job_type = job_type
         self.__pool_size = pool_size
         self.__callees = [Callee(job_type)] * pool_size
@@ -25,7 +28,6 @@ class CalleePool():
         thread = Thread(target=self.exec_callee, args= ((next_available, callee, job)))
         thread.start()
         return thread
-
 
     def exec_callee(self, next_available, callee, job):
         callee.process_job(job)

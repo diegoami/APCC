@@ -11,6 +11,14 @@ Architrave Python Coding Challenge.  Project Structure for coding challenge
 
 PURPOSE
 -------
+Image the following scenario:
+
+You've one master machine and 100 workers.
+There are 10 different kinds of jobs that need to be processed.
+Each worker is capable of processing each kind of job.
+Switching between jobs kinds takes 5 Minutes for a worker (during which he can't process any job)
+The number of pending jobs is dynamic and incoming order isn't strict.
+The average processing time of a job is on average 2 Minutes.
 
 
 INSTALLATION
@@ -35,35 +43,17 @@ way. Mainly, it serves to define a common vocabulary and show
 the idea of the task.
 
 
-COPYRIGHT
+QUESTIONS / TASKS
 ---------
-Copyright © 2018, Richard Klemm.
-All rights reserved.
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are
-met:
+Questions:
 
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions, and the following disclaimer.
+1. How is the current implementation broken? When does it make sense to deviate from the
+   specs that far?
+2. Describe a possible solution that would optimally use available resources.
+   We figured it would take too long to actually implement but are interested in the
+   solutions you come up with
 
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions, and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
+Tasks:
 
-3. Neither the name of the author of this software nor the names of
-   contributors to this software may be used to endorse or promote
-   products derived from this software without specific prior written
-   consent.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
-OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+1. Make the workers run in parallel.

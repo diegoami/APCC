@@ -3,8 +3,10 @@ from threading import Thread, Semaphore, Condition
 import logging
 from collections import defaultdict
 
-class LRUPool():
+"""A pool of workers, uniformly preassigned to job_types, which can change assignment in case some job_types are overloaded
+"""
 
+class VariablePool():
 
     def __init__(self, job_types, pool_size):
         self.__job_types = job_types
@@ -18,8 +20,6 @@ class LRUPool():
         self.__conditions = {}
 
         for job_type in self.__job_types:
-
-
             self.__pool_distribution[job_type] = pool_size
             self.__available_callees[job_type] = set( range(job_type*pool_size , job_type*pool_size +pool_size))
             logging.debug("Adding callees to job_type {} : {}".format(job_type, self.__available_callees[job_type]))
@@ -30,7 +30,7 @@ class LRUPool():
 
     def get_first_free(self):
         free_pool = sorted([(job_type, len(available)) for job_type, available in self.__available_callees.items() if len(available) > self.__pool_size / 2],
-                           reverse=True, key= lambda x: x[1])
+                           reverse=True, key=lambda x: x[1])
         if (len(free_pool) > 0):
             return free_pool[0]
         else:
