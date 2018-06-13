@@ -33,7 +33,6 @@ def main():
     start = time.time()
 
 
-    elapsed = end - start
     for job_type in JOB_TYPES:
         for i in range(0, 10):
             callees[job_type].append(Callee(job_type))
