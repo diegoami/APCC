@@ -1,4 +1,4 @@
-import time
+
 from .callee import Callee
 from threading import Thread, Semaphore
 import logging
@@ -6,8 +6,6 @@ import logging
 
 class CalleePool():
 
-    PROCESS_TIME = 2
-    SWITCH_TIME = 5
 
     def __init__(self, job_type, pool_size):
         self.__job_type = job_type
@@ -35,3 +33,5 @@ class CalleePool():
         self.__available_callees.add(next_available)
         logging.debug("Releasing worker {} of job_type {}".format(next_available, self.__job_type))
         self.__semaphore.release()
+
+
